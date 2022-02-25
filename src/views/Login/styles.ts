@@ -19,7 +19,7 @@ export const ContainerLogo = styled.View`
 export const LogoImg = styled.Image``;
 
 export const ContainerForm = styled.View`
-  flex: 3;
+  flex: 2;
   width: 100%;
   align-items: center;
   justify-content: center;
@@ -27,7 +27,7 @@ export const ContainerForm = styled.View`
 
 export const Form = styled.View`
   width: 90%;
-  height: 80%;
+  height: 90%;
   background-color: #ffffff;
   border-radius: 10px;
   padding: 20px;
