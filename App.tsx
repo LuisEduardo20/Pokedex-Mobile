@@ -1,28 +1,37 @@
 import React from 'react';
-import {SafeAreaView, StyleSheet, View} from 'react-native';
-import {Provider as PaperProvider} from 'react-native-paper';
-import Login from './src/views/Login';
+import {SafeAreaView, StyleSheet} from 'react-native';
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import LoginScreen from './src/views/LoginScreen';
+import HomeScreen from './src/views/HomeScreen';
+
+const Stack = createNativeStackNavigator();
 
 const App = () => {
   return (
-    <PaperProvider>
-      <SafeAreaView style={styles.view}>
-        <View style={styles.container}>
-          <Login />
-        </View>
-      </SafeAreaView>
-    </PaperProvider>
+    <SafeAreaView style={styles.view}>
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen
+            name="Login"
+            component={LoginScreen}
+            options={{headerShown: false}}
+          />
+
+          <Stack.Screen
+            name="Home"
+            component={HomeScreen}
+            options={{headerShown: false}}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
   view: {
     flex: 1,
-  },
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
   },
 });
 
