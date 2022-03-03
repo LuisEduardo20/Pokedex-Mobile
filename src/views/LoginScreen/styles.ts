@@ -19,7 +19,7 @@ export const ContainerLogo = styled.View`
 export const LogoImg = styled.Image``;
 
 export const ContainerForm = styled.View`
-  flex: 2;
+  flex: 2.2;
   width: 100%;
   align-items: center;
   justify-content: center;
