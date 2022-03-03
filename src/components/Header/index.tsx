@@ -1,24 +1,13 @@
 import React, {useState} from 'react';
 import {IconButton} from 'react-native-paper';
 import {HeaderContext} from '../../contexts/HeaderContext';
-import FilterContainer from './FilterContainer';
+import FilterList from './FilterList';
 import FilterModal from './FilterModal';
-import {
-  Container,
-  Logo,
-  ContainerSearch,
-  SearchInput,
-  // FilterModal,
-} from './styles';
+import {Container, Logo, ContainerSearch, SearchInput} from './styles';
 
 const Header = () => {
   const [modalVisible, setModalVisible] = useState(false);
-  const [filterList, setFilterList] = useState([
-    'Todos',
-    'Fantasma',
-    'Fogo',
-    'Água',
-  ]);
+  const [filterList, setFilterList] = useState(['Todos']);
 
   return (
     <HeaderContext.Provider
@@ -36,7 +25,7 @@ const Header = () => {
           />
         </ContainerSearch>
 
-        <FilterContainer />
+        <FilterList />
 
         <FilterModal />
       </Container>

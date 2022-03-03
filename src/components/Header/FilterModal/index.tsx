@@ -1,11 +1,28 @@
 import React, {useContext} from 'react';
 import {StyleSheet} from 'react-native';
 import Modal from 'react-native-modal';
-import {Button} from 'react-native-paper';
+import {IconButton} from 'react-native-paper';
+
 import {HeaderContext} from '../../../contexts/HeaderContext';
+import FilterButtons from './FilterButtons';
+
+import {
+  Header,
+  HeaderTitle,
+  ClearFiltersButton,
+  FiltersContainer,
+  ApplyButton,
+  ApplyButtonText,
+} from './styles';
 
 const FilterModal = () => {
-  const {modalVisible, setModalVisible} = useContext(HeaderContext);
+  const {modalVisible, setModalVisible, setFilterList} =
+    useContext(HeaderContext);
+
+  const handleFilter = () => {
+    console.log('Aplicou filtros');
+    setModalVisible(false);
+  };
 
   return (
     <Modal
@@ -15,7 +32,23 @@ const FilterModal = () => {
       coverScreen={true}
       hasBackdrop={false}
       style={styles.container}>
-      <Button onPress={() => setModalVisible(false)}>Fechar</Button>
+      <Header>
+        <HeaderTitle>Filtro</HeaderTitle>
+        <IconButton
+          icon="close"
+          size={20}
+          color={'#5E5D5D'}
+          onPress={() => setModalVisible(false)}
+        />
+      </Header>
+
+      <FiltersContainer>
+        <FilterButtons />
+      </FiltersContainer>
+
+      <ApplyButton onPress={handleFilter}>
+        <ApplyButtonText>Aplicar</ApplyButtonText>
+      </ApplyButton>
     </Modal>
   );
 };
@@ -27,6 +60,9 @@ const styles = StyleSheet.create({
     padding: 0,
     margin: 0,
     marginLeft: '20%',
+
+    alignItems: 'center',
+    justifyContent: 'space-evenly',
 
     backgroundColor: '#fff',
 
