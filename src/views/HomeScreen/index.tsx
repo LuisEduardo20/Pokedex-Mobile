@@ -1,10 +1,11 @@
 import React from 'react';
-import {Container, Title} from './styles';
+import Header from '../../components/Header';
+import {Container} from './styles';
 
 const Home = () => {
   return (
     <Container>
-      <Title>Home</Title>
+      <Header />
     </Container>
   );
 };
