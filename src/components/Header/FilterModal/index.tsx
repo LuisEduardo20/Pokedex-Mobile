@@ -1,5 +1,5 @@
 import React, {useContext} from 'react';
-import {StyleSheet} from 'react-native';
+import {Alert, StyleSheet} from 'react-native';
 import Modal from 'react-native-modal';
 import {IconButton} from 'react-native-paper';
 
@@ -16,12 +16,15 @@ import {
 } from './styles';
 
 const FilterModal = () => {
-  const {modalVisible, setModalVisible, setFilterList} =
+  const {modalVisible, setModalVisible, filterList, setFilterList} =
     useContext(HeaderContext);
 
   const handleFilter = () => {
-    console.log('Aplicou filtros');
-    setModalVisible(false);
+    if (filterList.length > 0) {
+      setModalVisible(false);
+    } else if (filterList.length < 1) {
+      Alert.alert('Error!', 'Seleciona ao menos 1 filtro!');
+    }
   };
 
   return (

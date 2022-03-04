@@ -7,11 +7,13 @@ const FilterList = () => {
   const {filterList, setFilterList} = useContext(HeaderContext);
 
   const removeFilter = (tagName: string) => {
-    setFilterList(() =>
-      filterList.filter((name: string) => {
-        return name !== tagName;
-      }),
-    );
+    if (filterList.length > 1) {
+      setFilterList(() =>
+        filterList.filter((name: string) => {
+          return name !== tagName;
+        }),
+      );
+    }
   };
 
   return (
